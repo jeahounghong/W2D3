@@ -10,4 +10,5 @@ class Player
         coordinates = gets.chomp.split(" ")
         return coordinates.map {|el| el.to_i}
     end
+    
 end
