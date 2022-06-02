@@ -31,7 +31,7 @@ class Board
         arr = []
         @grid.each_with_index do |el, i|
             el.each_with_index do |el2, j|
-                arr << [i,j] if self.valid?([i,j])
+                arr << [i,j] if self.empty?([i,j])
             end
         end
         arr

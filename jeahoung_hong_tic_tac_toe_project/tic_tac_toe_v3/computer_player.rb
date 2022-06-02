@@ -10,6 +10,7 @@ class ComputerPlayer
 
     def get_position(legal_positions)
         print "Bot " + @mark_value.to_s + " is thinking...\n"
+        sleep(1)
         return legal_positions.sample
     end
 end

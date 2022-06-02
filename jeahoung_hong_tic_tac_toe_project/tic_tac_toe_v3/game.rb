@@ -35,6 +35,7 @@ class Game
             @board.print
             puts
             mark = @current_player.mark_value
+            
             @board.place_mark(@current_player.get_position(@board.legal_positions?), @current_player.mark_value)
             if @board.win_col?(mark) || @board.win_row?(mark) || @board.win_diagonal?(mark)
                 p "Victory!"
@@ -48,7 +49,16 @@ class Game
 end
 
 print "Hello! How many players would you like to have play?\n"
-num_players = gets.chomp.to_i
+begin
+    num_players = gets.chomp
+    unless num_players.to_i.to_s == num_players
+        raise ArgumentError.new
+    end
+rescue
+    print "--- Please enter a number...\n"
+    retry
+end
+num_players = num_players.to_i
 player_marks = {}
 print "Would you like to add any Bots? (Y/N)\n"
 bots = gets.chomp.downcase
